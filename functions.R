@@ -16,7 +16,7 @@ square(53)
 
 ###EXERCISE 2
 raise <- function(x, power) {
-	raise2 <- x * power
+	raise2 <- x^power
 	return(raise2)
 }
 # test with
@@ -27,8 +27,8 @@ raise(x = 2, power = 4)
 --------------------------------------------------------------
 
 ###EXERCISE 3
-raise <- function(x, power = x) {
-	raise2 <- x * power
+raise <- function(x, power = 2) {
+	raise2 <- x^power
 	return(raise2)
 }
 # test
