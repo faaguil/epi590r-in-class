@@ -34,6 +34,14 @@ nlsy <- read_csv(here::here("data", "raw", "nlsy.csv"),
          eyesight_cat = factor(eyesight, labels = c("Excellent", "Very good", "Good", "Fair", "Poor")),
          glasses_cat = factor(glasses, labels = c("No", "Yes"))) 
 ```
+```{r}
+#This will be NA if we do not remove the NAs within the variable
+sleep_avg <- mean(nlsy$sleep_wkdy, na.rm = TRUE)
+```
+
+We can use the round() function to round off the number and specify how many digits we want! 
+
+The average hours of sleep was `r round(sleep_avg, 1)`.
 
 # Customization of `tbl_summary()`
 
@@ -99,7 +107,7 @@ The overall stats on Hispanic individuals is `r Hispanic_n`.
 ```{r}
 #| cache: true
 #| label: tbl-uni
-#| tbl-cap: "Income among multiple variables"
+#| tbl-cap: "Univariate regression of income among multiple variables"
 
 uni_tbl <- tbl_uvregression(
   nlsy, 
@@ -211,6 +219,8 @@ tbl_int <- tbl_regression(
 tbl_merge(list(tbl_no_int, tbl_int), 
           tab_spanner = c("**Model 1**", "**Model 2**"))
 ```
+
+</br>
 
 For manuscripts/clear writing:
 ```{r}
